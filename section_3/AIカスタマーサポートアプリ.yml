@@ -1,0 +1,176 @@
+app:
+  description: "AI\u306B\u3088\u308A\u81EA\u52D5\u3067\u30AB\u30B9\u30BF\u30DE\u30FC\
+    \u30B5\u30DD\u30FC\u30C8\u3059\u308B\u30A2\u30D7\u30EA\u3067\u3059\u3002"
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: "AI\u30AB\u30B9\u30BF\u30DE\u30FC\u30B5\u30DD\u30FC\u30C8\u30A2\u30D7\u30EA"
+kind: app
+version: 0.1.0
+workflow:
+  features:
+    file_upload:
+      image:
+        enabled: true
+        number_limits: 3
+        transfer_methods:
+        - remote_url
+        - local_file
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      configs: []
+      enabled: false
+      type: ''
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: start-knowledge_retrieval
+      source: start
+      sourceHandle: source
+      target: knowledge_retrieval
+      targetHandle: target
+      type: custom
+    - data:
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: knowledge_retrieval-llm
+      source: knowledge_retrieval
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    nodes:
+    - data:
+        selected: false
+        title: START
+        type: start
+        variables: []
+      height: 54
+      id: start
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 232e0546-cbab-4316-b0d2-0e580ddd0074
+        multiple_retrieval_config: null
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: single
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              stop: []
+            mode: chat
+            name: gemini-1.5-flash-latest
+            provider: google
+        title: KNOWLEDGE RETRIEVAL
+        type: knowledge-retrieval
+      height: 92
+      id: knowledge_retrieval
+      position:
+        x: 380
+        y: 282
+      positionAbsolute:
+        x: 380
+        y: 282
+      selected: true
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - knowledge_retrieval
+          - result
+        memory:
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+        model:
+          completion_params:
+            stop: []
+          mode: chat
+          name: gemini-1.5-flash-latest
+          provider: google
+        prompt_template:
+        - id: 95d87997-d450-49cd-af5c-3629b26c5d3e
+          role: user
+          text: "\u3042\u306A\u305F\u306F\u512A\u79C0\u306A\u30AB\u30B9\u30BF\u30DE\
+            \u30FC\u30B5\u30DD\u30FC\u30C8\u3067\u3059\u3002\n\u4EE5\u4E0B\u306E<context></context>\
+            \ XML\u30BF\u30B0\u5185\u306E\u30B3\u30F3\u30C6\u30AD\u30B9\u30C8\u306B\
+            \u57FA\u3065\u304D\u3001\u30E6\u30FC\u30B6\u30FC\u304B\u3089\u306E\u8CEA\
+            \u554F\u306B\u7B54\u3048\u3066\u304F\u3060\u3055\u3044\u3002\n\n<context>\n\
+            {{#context#}}\n</context>\n"
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          configs:
+            detail: high
+          enabled: true
+          variable_selector:
+          - sys
+          - files
+      height: 98
+      id: llm
+      position:
+        x: 680
+        y: 282
+      positionAbsolute:
+        x: 680
+        y: 282
+      selected: false
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#llm.text#}}'
+        selected: false
+        title: ANSWER
+        type: answer
+      height: 107
+      id: answer
+      position:
+        x: 980
+        y: 282
+      positionAbsolute:
+        x: 980
+        y: 282
+      type: custom
+      width: 244
+    viewport:
+      x: -206
+      y: 119
+      zoom: 1
