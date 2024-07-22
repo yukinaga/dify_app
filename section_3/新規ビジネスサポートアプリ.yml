@@ -1,0 +1,79 @@
+app:
+  description: "\u65B0\u898F\u30D3\u30B8\u30CD\u30B9\u306B\u95A2\u3057\u3066\u76F8\
+    \u8AC7\u3067\u304D\u308B\u30A2\u30D7\u30EA\u3067\u3059\u3002"
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: "\u65B0\u898F\u30D3\u30B8\u30CD\u30B9\u30B5\u30DD\u30FC\u30C8\u30A2\u30D7\u30EA"
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 5
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: single
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    image:
+      detail: high
+      enabled: true
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gemini-1.5-flash-latest
+    provider: google
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: "\u3042\u306A\u305F\u306F\u512A\u79C0\u306A\u65B0\u898F\u4E8B\u696D\u30B3\
+    \u30F3\u30B5\u30EB\u62C5t\u304A\u3067\u3059\u3002\n{{field}}\u306E\u5206\u91CE\
+    \u3067\u306E\u65B0\u898F\u30D3\u30B8\u30CD\u30B9\u3092\u8003\u3048\u3066\u3044\
+    \u307E\u3059\u3002\n\u300C{{considerations}}\u300D\u3092\u8003\u616E\u3057\u3001\
+    \u8D77\u696D\u306E\u8A08\u753B\u3092\u7ACB\u3066\u3066\u304F\u3060\u3055\u3044\
+    \u3002 \n\u65B0\u88FD\u54C1\u958B\u767A\u3084\u65B0\u898F\u30B5\u30FC\u30D3\u30B9\
+    \u3001\u53CE\u76CA\u6027\u306B\u3064\u3044\u3066\u3082\u8003\u616E\u3057\u3066\
+    \u304F\u3060\u3055\u3044\u3002"
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form:
+  - text-input:
+      default: ''
+      label: "\u5206\u91CE"
+      max_length: 48
+      required: true
+      variable: field
+  - text-input:
+      default: ''
+      label: "\u8003\u616E\u3059\u3079\u304D\u4E8B\u9805"
+      max_length: 48
+      required: true
+      variable: considerations
+version: 0.1.0
