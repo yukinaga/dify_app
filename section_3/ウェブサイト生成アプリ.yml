@@ -1,0 +1,78 @@
+app:
+  description: "\u30A6\u30A7\u30D6\u30B5\u30A4\u30C8\u3092\u81EA\u52D5\u3067\u751F\
+    \u6210\u3059\u308B\u30A2\u30D7\u30EA\u3067\u3059\u3002"
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: "\u30A6\u30A7\u30D6\u30B5\u30A4\u30C8\u751F\u6210\u30A2\u30D7\u30EA"
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 5
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: single
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    image:
+      detail: high
+      enabled: true
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gemini-1.5-flash-latest
+    provider: google
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: "HTML\u30D5\u30A1\u30A4\u30EB\u3092\u4F5C\u6210\u3057\u3001\u305D\u306E\
+    \u4E2D\u306BJavaScript\u3068CSS\u3092\u7D71\u5408\u3057\u307E\u3059\u3002\n\u3053\
+    \u306E\u30A6\u30A7\u30D6\u30DA\u30FC\u30B8\u306B\u306F\u3001\u30C9\u30ED\u30C3\
+    \u30D7\u30C0\u30A6\u30F3\u30E1\u30CB\u30E5\u30FC\u3001\u52D5\u7684\u306A\u30C6\
+    \u30AD\u30B9\u30C8\u3068\u30B3\u30F3\u30C6\u30F3\u30C4\u3001\u30AF\u30EA\u30C3\
+    \u30AF\u53EF\u80FD\u306A\u30DC\u30BF\u30F3\u306A\u3069\u3001\u69D8\u3005\u306A\
+    \u9B45\u529B\u7684\u3067\u30A4\u30F3\u30BF\u30E9\u30AF\u30C6\u30A3\u30D6\u306A\
+    \u8981\u7D20\u3092\u591A\u6570\u53D6\u308A\u5165\u308C\u307E\u3059\u3002\n\u30C7\
+    \u30B6\u30A4\u30F3\u306F\u73FE\u4EE3\u7684\u3067\u7F8E\u3057\u304F\u3001\u3055\
+    \u307E\u3056\u307E\u306A\u753B\u9762\u30B5\u30A4\u30BA\u306B\u9069\u5FDC\u3057\
+    \u3001\u76F4\u611F\u7684\u306B\u64CD\u4F5C\u3067\u304D\u308B\u3082\u306E\u306B\
+    \u3057\u307E\u3059\u3002\n\u30EC\u30B9\u30DD\u30F3\u30B7\u30D6\u3067\u3001\u30E6\
+    \u30FC\u30B6\u30FC\u30D5\u30EC\u30F3\u30C9\u30EA\u30FC\u306A\u30C7\u30B6\u30A4\
+    \u30F3\u3067\u3042\u308B\u3053\u3068\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\
+    \u3055\u3044\u3002\n\u30B3\u30FC\u30C9\u306F\u660E\u78BA\u306B\u69CB\u6210\u3055\
+    \u308C\u3001\u52B9\u7387\u7684\u306B\u7DE8\u6210\u3055\u308C\u3001\u9069\u5207\
+    \u306A\u30B3\u30E1\u30F3\u30C8\u304C\u4ED8\u3051\u3089\u308C\u3066\u3044\u308B\
+    \u3053\u3068\u3092\u78BA\u8A8D\u3057\u3001\u4FDD\u5B88\u304C\u5BB9\u6613\u306B\
+    \u306A\u308B\u3088\u3046\u306B\u3057\u307E\u3059\u3002"
+  prompt_type: simple
+  retriever_resource:
+    enabled: false
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.1.0
